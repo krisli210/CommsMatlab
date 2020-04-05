@@ -1,4 +1,4 @@
-function [receive_output] = channel(symbols) 
+function [receive_input, receive_output] = channel(symbols) 
     %%%%%%%%%%%%%TRANSMIT FILTER SPECIFICATION%%%%%%%%%%%%%%%%
     %FILTER IS IMPLEMENTED AT RATE m/T, where m = oversampling factor
     oversampling_factor = 4;%%%default choice

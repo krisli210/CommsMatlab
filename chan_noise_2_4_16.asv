@@ -1,0 +1,14 @@
+EbNo_dB = [0:15]; %Different Eb/No 0-15 dB
+
+%C%
+bits = randi(2,1,12000)-1;
+bpsk_symbols, Eb = bpskmap(bits);
+filtered_bpsk = channel(bpsk_symbols);
+
+%add noise%
+for ii = 1:length(EbNo_dB)
+    EbNo_raw = 10^(Eb_No_dB(ii)/10);
+    No = Eb
+    
+end
+%D%

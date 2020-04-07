@@ -1,4 +1,5 @@
 close all 
+clc
 
 EbNo_dB = [0:10]; %Different Eb/No 0-15 dB
 
@@ -8,6 +9,7 @@ EbNo_dB_desired_bpsk = 4.3; %to attain theoretical 10^-2 symbol error rate
     [bpsk_symbols, Eb_bpsk] = bpskmap(bits);
     EbNo_raw = 10^(EbNo_dB_desired_bpsk/10);
     No = Eb_bpsk/EbNo_raw;
+    variance_bpsk = No/2
     [receive_input_bpsk, receive_output_bpsk] = channel(bpsk_symbols, No);
     
     %With MF%
@@ -52,7 +54,7 @@ EbNo_dB_desired_qpsk = 5.2; %to attain theoretical 10^-2 symbol error rate
     errors_qpsk = nnz(recovered_bits - bits_qpsk);
     Pe_qpsk = errors_qpsk/length(bits_qpsk)
     
-EbNo_dB_desired_16qam = 100; %to attain theoretical 10^-2 symbol error rate   
+EbNo_dB_desired_16qam = 9.6; %to attain theoretical 10^-2 symbol error rate   
 
 %16QAM%
     bits_16_qam = randi(2,1,12000)-1;

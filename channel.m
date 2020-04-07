@@ -1,4 +1,4 @@
-function [receive_input, receive_output] = channel(symbols) 
+function [receive_input, receive_output] = channel(symbols, No) 
     %%%%%%%%%%%%%TRANSMIT FILTER SPECIFICATION%%%%%%%%%%%%%%%%
     %FILTER IS IMPLEMENTED AT RATE m/T, where m = oversampling factor
     oversampling_factor = 4;%%%default choice
@@ -37,5 +37,6 @@ function [receive_input, receive_output] = channel(symbols)
     %%%%%%%NOISELESS RECEIVER INPUT%%%%%%%%%%%%
     receive_input = conv(symbolspadded,received_response);
     %%%%%%%NOISELESS RECEIVE FILTER OUTPUT%%%%%%%
-    receive_output = conv(receive_input,receive_filter);
+    noisevec = sqrt(No/2)*randn(1,length(receive_input))+1j*sqrt(No/2)*randn(1,length(receive_input));
+    receive_output = conv(receive_input+noisevec.',receive_filter);
 end

@@ -11,3 +11,4 @@ function [qpsk_symbols, Eb] = qpskmap(bits)
     Eb = 1;
 end
 
+

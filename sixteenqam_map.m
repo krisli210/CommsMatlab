@@ -1,4 +1,4 @@
-function [sixteenqam_symbols] = sixteenqam_map(bits)
+function [sixteenqam_symbols, Eb] = sixteenqam_map(bits)
     M = 16; k = log2(M); N = length(bits)/k;
     bits_reshape = reshape(bits, k, N).';
     map = [-3 -1 1 3];
@@ -17,4 +17,5 @@ function [sixteenqam_symbols] = sixteenqam_map(bits)
    
     sixteenqam_symbols = r_amp+1j*i_amp;
     
+    Eb = 10/4; 
 end

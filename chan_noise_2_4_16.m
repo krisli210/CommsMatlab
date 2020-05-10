@@ -14,7 +14,7 @@ EbNo_dB_desired_bpsk = 4.3; %to attain theoretical 10^-2 symbol error rate
     
     %With MF%
     channel_and_noise_MF = receive_output_bpsk;
-    fix_GD_MF = channel_and_noise_MF(47:end-46);
+    fix_GD_MF = channel_and_noise_MF(48:end-47);
     recovered_MF = downsample(fix_GD_MF, 4);
     
     figure;
@@ -40,7 +40,7 @@ EbNo_dB_desired_qpsk = 5.2; %to attain theoretical 10^-2 symbol error rate
     [receive_input_qpsk, receive_output_qpsk] = channel(qpsk_symbols, No);
     
     %With MF%
-    fix_GD_qpsk = receive_output_qpsk(47: end-46);
+    fix_GD_qpsk = receive_output_qpsk(48: end-47);
     recovered_qpsk = downsample(fix_GD_qpsk, 4);
     
     figure;
@@ -65,7 +65,7 @@ EbNo_dB_desired_16qam = 9.6; %to attain theoretical 10^-2 symbol error rate
     [receive_input_16qam, receive_output_16qam] = channel(sixteenqam_symbols, No);
     
     %With MF%
-    fix_GD_16 = receive_output_16qam(47: end-46);
+    fix_GD_16 = receive_output_16qam(48: end-47);
     recovered_16 = downsample(fix_GD_16, 4);
     
     figure;

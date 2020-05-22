@@ -25,5 +25,5 @@ gap_dB = 3;
 % xlabel('k')
 % ylabel('Efficiency [bits/Hz]')
 
-N = 8;
-[r_n, efficiency, opt_E_n] = WaterFillOFDM_ZeroP(channel, n_var, E_s_dim, N, gap_dB);
+%N = 8;
+%[r_n, efficiency, opt_E_n] = WaterFillOFDM_ZeroP(channel, n_var, E_s_dim, N, gap_dB);

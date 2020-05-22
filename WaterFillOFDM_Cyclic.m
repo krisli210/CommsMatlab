@@ -3,12 +3,13 @@ function [r_n, efficiency, opt_E_n] = WaterFillOFDM_Cyclic(channel, n_var, E_s_d
     h = channel;   % the channel
     h_rev = fliplr(h);   % the time reversed channel
     v = length(h)-1;     % # of ISI taps
-    P = toeplitz([h zeros(1,N-1)], [h(1) zeros(1,N-1)])   % For my matrix vector definition, assuming zero prefix
+    P = toeplitz([h zeros(1,N-1)], [h(1) zeros(1,N-1)]);   % For my matrix vector definition, assuming zero prefix
     H_OFDM =  toeplitz([h zeros(1,N-v-1)], [h(1) zeros(1,N-v-1) h_rev(1:v)]);    % for OFDM, assuming cyclic prefix
     
     gap = 10^(gap_dB/10);
     E_s = E_s_dim*(N);
     
+    %lam = abs(fft(P, N))
     lam = abs(eig(H_OFDM));
     lam = sort(lam, 'descend');
     g_n = lam.^2/n_var;
